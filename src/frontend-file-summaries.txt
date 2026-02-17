@@ -1,0 +1,14 @@
+{
+  "frontend/src/App.tsx": "Main game component with 3x3 Tic-Tac-Toe board, adjustable AI speed control, optimized AI turn sequencing with conditional thinking indicator, and integrated username/leaderboard panels in responsive three-column layout.",
+  "frontend/src/lib/tictactoe.ts": "Optimized Tic-Tac-Toe game logic with alpha-beta pruning, memoization, move ordering, and quick win/block checks for faster unbeatable AI performance.",
+  "frontend/src/hooks/useSound.ts": "React hook for preloading and playing game sound effects (move, win, lose, draw) with volume control and autoplay error handling.",
+  "frontend/src/hooks/useLeaderboard.ts": "React Query hook managing leaderboard data fetching, win recording mutations, and automatic cache invalidation using the backend actor.",
+  "frontend/src/hooks/useUsername.ts": "React hook for managing username state with localStorage persistence and validation (1-20 characters).",
+  "frontend/src/components/LeaderboardPanel.tsx": "Leaderboard display component showing top players sorted by wins with medal indicators, refresh button, and scrollable list in a neon-pink themed card.",
+  "frontend/src/components/UsernameForm.tsx": "Username input form component with validation, save functionality, and visual feedback in a neon-blue themed card.",
+  "frontend/src/index.css": "Global styles with dark-mode OKLCH color system, custom neon blue/pink color tokens, and neon glow text-shadow utilities for the game's aesthetic.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with neon-blue and neon-pink color tokens, custom box-shadow utilities for neon effects, and Inter font family.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as all React Query logic is implemented in feature-specific hooks per the architecture plan.",
+  "frontend/src/hooks/useAISpeed.ts": "React hook managing AI speed settings (fast/normal/smooth) with localStorage persistence and derived timing values for AI delay and thinking indicator threshold.",
+  "frontend/src/components/AISpeedControl.tsx": "UI control component for selecting AI speed steps with three buttons (Fast/Normal/Smooth) styled with neon theme and descriptive labels."
+}

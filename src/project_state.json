@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Game 1 of a 30-days/30-games challenge: build 'Neon Tic-Tac-Toe' as a full-stack Tic-Tac-Toe DApp with neon dark-mode UI, unbeatable MiniMax AI, sound effects, reset, and an ICP-backed global leaderboard by username (most wins).",
+  "architectural_notes": [
+    "App is a full-stack DApp with an ICP backend used for persisting global leaderboard data.",
+    "Consider optimizing MiniMax for responsiveness (e.g., alpha-beta pruning/memoization) and optionally add a brief intentional UI 'thinking' delay/animation to keep gameplay feeling smooth."
+  ],
+  "known_issues": [
+    "AI move computation can feel slow ('AI is thinking…' delay), especially early in the game."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-the-neon-tic-tac-toe-game-ui-in-dark-mode-using-tailwind-css-with-a-consistent-neon-aesthetic-neon-blue-and-neon-pink-borders-accents-including-a-3x3-board-current-turn-status-text-and-clear-end-of-game-messaging-win-lose-draw",
+      "title": "Create the Neon Tic-Tac-Toe game UI in dark mode using Tailwind CSS with a consistent neon aesthetic (neon blue and neon pink borders/accents), including a 3x3 board, current turn/status text, and clear end-of-game messaging (win/lose/draw).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-tic-tac-toe-gameplay-for-human-vs-ai-where-the-human-plays-first-and-the-ai-uses-the-minimax-algorithm-to-be-unbeatable",
+      "title": "Implement Tic-Tac-Toe gameplay for Human vs. AI, where the human plays first and the AI uses the MiniMax algorithm to be unbeatable.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-reset-button-that-restarts-the-current-game-to-the-initial-empty-board-state-and-resets-any-in-game-status-turn-outcome",
+      "title": "Add a Reset button that restarts the current game to the initial empty board state and resets any in-game status (turn, outcome).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-sound-effects-for-gameplay-interactions-play-a-click-sound-when-the-human-places-a-mark-and-distinct-sounds-for-game-end-states-win-lose-draw",
+      "title": "Add sound effects for gameplay interactions: play a click sound when the human places a mark, and distinct sounds for game end states (win/lose/draw).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-username-flow-in-the-ui-and-integrate-it-with-the-leaderboard-allow-the-player-to-set-enter-a-username-record-a-win-to-the-backend-when-the-human-wins-and-display-the-global-leaderboard-most-wins-by-username",
+      "title": "Add a username flow in the UI and integrate it with the leaderboard: allow the player to set/enter a username, record a win to the backend when the human wins, and display the global leaderboard (Most Wins by username).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reduce-the-perceived-and-actual-ai-response-time-after-the-player-places-an-x-by-replacing-the-current-fixed-500ms-ai-delay-with-an-adjustable-ai-speed-setting-speed-steps-that-controls-the-ai-move-delay-while-keeping-the-gameplay-smooth",
+      "title": "Reduce the perceived and actual AI response time after the player places an X by replacing the current fixed 500ms AI delay with an adjustable “AI Speed” setting (speed steps) that controls the AI move delay while keeping the gameplay smooth.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-optimize-the-tic-tac-toe-ai-move-computation-so-the-ai-remains-unbeatable-but-selects-moves-faster-in-the-browser-especially-early-in-the-game-reduce-the-time-spent-in-minimax",
+      "title": "Optimize the Tic-Tac-Toe AI move computation so the AI remains unbeatable but selects moves faster in the browser, especially early in the game (reduce the time spent in MiniMax).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-ai-turn-ux-feel-smoother-by-ensuring-status-transitions-e-g-ai-is-thinking-your-turn-x-update-consistently-with-the-ai-speed-setting-without-flicker-or-long-blocking-frames",
+      "title": "Make the AI-turn UX feel smoother by ensuring status transitions (e.g., 'AI is thinking…' -> 'Your Turn (X)') update consistently with the AI speed setting, without flicker or long blocking frames.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create Neon Tic-Tac-Toe full-stack DApp (Game 1) with dark mode neon Tailwind UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement Tic-Tac-Toe gameplay: human vs unbeatable MiniMax AI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add sound effects on click",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add a Reset button to restart the game",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Implement global leaderboard stored on ICP backend showing 'Most Wins' by username",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement an ICP-backed global leaderboard that tracks 'Most Wins' by username: persist wins in the Motoko backend and expose query/update methods to record a win and fetch a sorted leaderboard.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Improve AI turn responsiveness: optimize MiniMax so AI plays very fast after user taps X, while keeping gameplay smooth (optionally with a short intentional/animated 'thinking' delay).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "2d",
+  "projectName": "Neon Tic-Tac-Toe",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

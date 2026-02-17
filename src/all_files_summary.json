@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko actor managing user win counts with functions to record wins, fetch a sorted leaderboard, and get individual win totals.",
+  "feature_evidence.json": "Feature evidence report mapping feature IDs to affected frontend files, components, and test IDs.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing the purpose of various frontend React components, hooks, styles, and config files.",
+  "frontend/index.css": "Tailwind base layer defining theme variables for light/dark modes and applying global background and text colors.",
+  "frontend/index.html": "HTML entry page mounting the React app at #root and loading main.tsx.",
+  "frontend/src/App.tsx": "Main React game component handling Tic-Tac-Toe logic, AI timing, audio, username integration, and leaderboard updates.",
+  "frontend/src/components/AISpeedControl.tsx": "UI card with buttons allowing users to select AI speed mode with icons and descriptions.",
+  "frontend/src/components/LeaderboardPanel.tsx": "Displays the leaderboard with medals, refresh controls, loading states, and styled score rows.",
+  "frontend/src/components/UsernameForm.tsx": "Player profile form allowing username entry with validation and a save action showing success feedback.",
+  "frontend/src/hooks/useActor.ts": "Initializes a backend actor using the current Internet Identity and refreshes dependent queries when it changes.",
+  "frontend/src/hooks/useAISpeed.ts": "Hook managing AI speed setting with localStorage persistence and derived delay/timing values.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity authentication state, login/logout helpers, and context initialization.",
+  "frontend/src/hooks/useLeaderboard.ts": "Fetches and sorts leaderboard scores and provides a mutation to record wins using the backend actor.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file exporting nothing; queries are handled in feature‑specific hooks.",
+  "frontend/src/hooks/useSound.ts": "Preloads audio effects and exposes a play function for game sounds.",
+  "frontend/src/hooks/useUsername.ts": "Manages a username stored in localStorage with validation and update helpers.",
+  "frontend/src/index.css": "Defines Tailwind base layers and custom CSS variables including neon color utilities.",
+  "frontend/src/lib/tictactoe.ts": "Implements Tic‑Tac‑Toe logic including winner checks, AI minimax with memoization, and move evaluation.",
+  "frontend/src/main.tsx": "Bootstraps the React app with QueryClient and InternetIdentity providers.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme colors, utilities, and animations using custom CSS variables.",
+  "project_state.json": "Describes the current state of a Neon Tic‑Tac‑Toe DApp project, including features implemented, known issues, and architectural notes. Primarily tracks gameplay, UI, AI, and leaderboard requirements for build planning."
+}

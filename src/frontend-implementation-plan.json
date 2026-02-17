@@ -1,0 +1,66 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Neon Tic-Tac-Toe: Adjustable AI speed + faster MiniMax + smoother AI turn UX",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Replace the fixed 500ms AI delay with a user-adjustable AI Speed setting that controls AI move delay while keeping gameplay smooth.",
+      "acceptanceCriteria": [
+        "The AI move delay is no longer hard-coded to 500ms.",
+        "A user-visible control exists to choose an AI speed step (e.g., Fast / Normal / Smooth) that changes the AI move delay.",
+        "On the fastest step, AI moves should typically appear near-instant (minimal intentional delay) after the user taps X while still rendering the 'AI is thinking...' state only when applicable.",
+        "Changing the AI speed step does not break turn order, win/draw detection, reset behavior, sound effects, or leaderboard recording."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAISpeed.ts",
+          "operation": "create",
+          "description": "Add a small hook to store/read the selected AI Speed step (e.g., Fast/Normal/Smooth) with local persistence and expose derived timing values (intentional AI delay + 'thinking indicator' delay)."
+        },
+        {
+          "path": "frontend/src/components/AISpeedControl.tsx",
+          "operation": "create",
+          "description": "Create a small UI control for selecting AI Speed steps. Use shadcn-ui components (e.g., Card/Button) to match the current styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the AI Speed control into the existing layout (no new routes) and replace the fixed 500ms setTimeout with a delay derived from the selected speed step. Use existing shadcn-ui components already present (Card/Button) for consistent UI. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Optimize the in-browser unbeatable Tic-Tac-Toe AI so it chooses moves faster (especially earlier in the game) without changing the AI move function API.",
+      "acceptanceCriteria": [
+        "The AI remains unbeatable (no regressions where the player can force an AI loss).",
+        "AI computation time is reduced versus the current implementation for typical mid-game states (fewer noticeable stalls before the AI move appears).",
+        "The optimization does not change the external API of the AI move function as used by the app (still returns an index or -1)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/tictactoe.ts",
+          "operation": "modify",
+          "description": "Speed up makeAIMove(board) while preserving its signature/return behavior by optimizing MiniMax (e.g., alpha-beta pruning, memoization of evaluated board states, and improved move ordering; optionally quick win/block checks) to reduce computation time and avoid noticeable stalls."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Smooth AI-turn UX by making status transitions consistent with AI speed, keeping the board unclickable during AI turn, and avoiding flicker on fastest speed.",
+      "acceptanceCriteria": [
+        "When it becomes the AI’s turn, the UI reflects the AI-turn state promptly and returns to the player-turn state immediately after the AI move is applied.",
+        "The board remains unclickable during the AI turn across all speed steps.",
+        "No UI flicker occurs when the AI speed step is set to the fastest mode (e.g., avoid briefly showing 'AI is thinking…' for a single frame if the move is effectively instant)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Refactor AI-turn sequencing to (1) prevent re-entrancy/double-moves, (2) keep the board disabled for the entire AI turn across all speed steps, and (3) gate the 'AI is thinking…' indicator with a small threshold so it only appears when the AI action is not effectively instant (avoiding single-frame flicker in Fast mode), while still showing it promptly when computation/delay is non-trivial."
+        }
+      ]
+    }
+  ]
+}

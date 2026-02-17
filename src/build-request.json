@@ -1,0 +1,76 @@
+{
+  "kind": "build_request",
+  "title": "Speed up and smooth AI turns with adjustable speed steps",
+  "projectName": "Neon Tic-Tac-Toe",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Reduce the perceived and actual AI response time after the player places an X by replacing the current fixed 500ms AI delay with an adjustable “AI Speed” setting (speed steps) that controls the AI move delay while keeping the gameplay smooth.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "smooth gameplay, speed steps, if user tapped as x, ai should play very fast & clever ok"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The AI move delay is no longer hard-coded to 500ms.",
+        "A user-visible control exists to choose an AI speed step (e.g., Fast / Normal / Smooth) that changes the AI move delay.",
+        "On the fastest step, AI moves should typically appear near-instant (minimal intentional delay) after the user taps X while still rendering the 'AI is thinking...' state only when applicable.",
+        "Changing the AI speed step does not break turn order, win/draw detection, reset behavior, sound effects, or leaderboard recording."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Optimize the Tic-Tac-Toe AI move computation so the AI remains unbeatable but selects moves faster in the browser, especially early in the game (reduce the time spent in MiniMax).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "ai should play very fast & clever"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The AI remains unbeatable (no regressions where the player can force an AI loss).",
+        "AI computation time is reduced versus the current implementation for typical mid-game states (fewer noticeable stalls before the AI move appears).",
+        "The optimization does not change the external API of the AI move function as used by the app (still returns an index or -1)."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Make the AI-turn UX feel smoother by ensuring status transitions (e.g., 'AI is thinking…' -> 'Your Turn (X)') update consistently with the AI speed setting, without flicker or long blocking frames.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "smooth gameplay"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When it becomes the AI’s turn, the UI reflects the AI-turn state promptly and returns to the player-turn state immediately after the AI move is applied.",
+        "The board remains unclickable during the AI turn across all speed steps.",
+        "No UI flicker occurs when the AI speed step is set to the fastest mode (e.g., avoid briefly showing 'AI is thinking…' for a single frame if the move is effectively instant)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend must not modify files in frontend/immutablePaths (e.g., frontend/src/hooks/useActor.ts, frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/main.tsx, frontend/src/components/ui/*).",
+    "Keep all changes within the existing single-frontend + single-backend architecture; this request is frontend-only unless a regression requires otherwise."
+  ],
+  "nonGoals": [
+    "Changing the leaderboard data model or backend Motoko canister logic.",
+    "Adding new multiplayer modes or real-time features.",
+    "Adding third-party AI/LLM services or external APIs."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

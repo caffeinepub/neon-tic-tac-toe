@@ -1,0 +1,61 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-reduce-the-perceived-and-actual-ai-response-time-after-the-player-places-an-x-by-replacing-the-current-fixed-500ms-ai-delay-with-an-adjustable-ai-speed-setting-speed-steps-that-controls-the-ai-move-delay-while-keeping-the-gameplay-smooth",
+      "featureTitle": "Reduce the perceived and actual AI response time after the player places an X by replacing the current fixed 500ms AI delay with an adjustable “AI Speed” setting (speed steps) that controls the AI move delay while keeping the gameplay smooth.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AISpeedControl.tsx",
+        "frontend/src/hooks/useAISpeed.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-optimize-the-tic-tac-toe-ai-move-computation-so-the-ai-remains-unbeatable-but-selects-moves-faster-in-the-browser-especially-early-in-the-game-reduce-the-time-spent-in-minimax",
+      "featureTitle": "Optimize the Tic-Tac-Toe AI move computation so the AI remains unbeatable but selects moves faster in the browser, especially early in the game (reduce the time spent in MiniMax).",
+      "files": [
+        "frontend/src/lib/tictactoe.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-make-the-ai-turn-ux-feel-smoother-by-ensuring-status-transitions-e-g-ai-is-thinking-your-turn-x-update-consistently-with-the-ai-speed-setting-without-flicker-or-long-blocking-frames",
+      "featureTitle": "Make the AI-turn UX feel smoother by ensuring status transitions (e.g., 'AI is thinking…' -> 'Your Turn (X)') update consistently with the AI speed setting, without flicker or long blocking frames.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
